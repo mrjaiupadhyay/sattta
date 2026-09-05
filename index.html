@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Satta Match Invest</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <div class="logo-circle">S</div>
+          <div class="brand-text">
+            <h1>Satta Match Invest</h1>
+            <p>Simulate investing on live-style matches (demo only)</p>
+          </div>
+        </div>
+        <div class="balance-card">
+          <span class="balance-label">Available Balance</span>
+          <span id="balance-amount" class="balance-amount">₹0</span>
+          <button id="reset-balance-btn" class="ghost-btn">Reset Balance</button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel matches-panel">
+          <div class="panel-header">
+            <h2>Matches</h2>
+            <p>Select a match and outcome to invest your amount.</p>
+          </div>
+          <div id="matches-list" class="matches-list"></div>
+        </section>
+
+        <section class="panel invest-panel">
+          <div class="panel-header">
+            <h2>Place Investment</h2>
+            <p>Choose match, outcome and amount to lock your investment.</p>
+          </div>
+
+          <form id="invest-form" class="invest-form">
+            <label class="field">
+              <span class="field-label">Match</span>
+              <select id="match-select" required></select>
+            </label>
+
+            <label class="field">
+              <span class="field-label">Outcome</span>
+              <select id="outcome-select" required></select>
+            </label>
+
+            <label class="field">
+              <span class="field-label">
+                Amount (₹)
+                <span class="field-hint">Min ₹100, max your current balance</span>
+              </span>
+              <input
+                id="amount-input"
+                type="number"
+                min="100"
+                step="50"
+                placeholder="Enter amount"
+                required
+              />
+            </label>
+
+            <button type="submit" class="primary-btn">Invest</button>
+            <p id="form-message" class="form-message"></p>
+          </form>
+
+          <div class="divider"></div>
+
+          <div class="panel-header">
+            <h2>Open Investments</h2>
+            <p>Resolve a match to see if you made profit or loss.</p>
+          </div>
+          <div id="investments-list" class="investments-list empty-state">
+            <p>No investments yet. Place your first one!</p>
+          </div>
+        </section>
+
+        <section class="panel resolve-panel">
+          <div class="panel-header">
+            <h2>Resolve Matches (Demo)</h2>
+            <p>
+              Randomly resolve a match outcome to simulate real-world results.
+            </p>
+          </div>
+
+          <label class="field">
+            <span class="field-label">Match to Resolve</span>
+            <select id="resolve-match-select"></select>
+          </label>
+
+          <button id="resolve-random-btn" class="secondary-btn">
+            Resolve Random Outcome
+          </button>
+
+          <p id="resolve-message" class="resolve-message"></p>
+
+          <div class="divider"></div>
+
+          <div class="panel-header">
+            <h2>History</h2>
+          </div>
+          <div id="history-list" class="history-list empty-state">
+            <p>No history yet. Resolve a match to see results.</p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>
+          This is a <strong>demo simulation</strong> only. No real money, no
+          guarantees. Check your local laws before building real-money apps.
+        </p>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
